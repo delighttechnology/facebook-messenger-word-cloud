@@ -6,14 +6,13 @@ Python-based script to create a list of most used words from messenger archive.
 ---
 
 ## Table of contents
-* [Usage](#Usage)
+* [Example Usage](#Example Usage)
 * [Parameters](#Parameters)
 * [License](#License)
 
-## Usage
-- XXX
-- YYY
-- ZZZ
+## Example Usage
+
+> Text that is a quote
 	
 ## Parameters
 <p float="left">
