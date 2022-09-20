@@ -1,26 +1,23 @@
-# Breaking detection system
-This is repository to detect when the bike is breaking based on the accelerometer and gyroscope
+# Facebook Messenger Word Cloud
+Python-based script to create a list of most used words from messenger archive.
 
 ---
 ## Under construction
 ---
 
 ## Table of contents
-* [Features](#Features)
-* [PCB](#PCB)
-* [Reflow](#Reflow)
-* [Modeling and 3D Printing](#modeling-and-3d-printing)
+* [Usage](#Usage)
+* [Parameters](#Parameters)
 * [License](#License)
 
-## Features
+## Usage
 - XXX
 - YYY
 - ZZZ
 	
-## PCB
+## Parameters
 <p float="left">
   <img src="./images/pcb1.png" width="350" />
-  <img src="./images/pcb2.png" width="350" /> 
 </p>
 
 
