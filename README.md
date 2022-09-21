@@ -41,12 +41,14 @@ If you don't know how to download facebook archive, below you can find step by s
   <img src="./images/facebook2.png" width="250" />
 </p>
 <br/>
+
 2. On the left side of the screen click **Privacy** tab and then **Your Facebook information**
 <p float="left">
   <img src="./images/facebook3.png" width="250">  ⮕  </img>
   <img src="./images/facebook4.png" width="250" />
 </p>
 <br/>
+
 3. You will have a list of options to choose from, please select **Download profile information**
 <img src="./images/facebook5.png" width="800" />
 <br/>
@@ -55,6 +57,7 @@ If you don't know how to download facebook archive, below you can find step by s
   <img src="./images/facebook6.png" width="800" />
 </p>
 <br/>
+
 ### Extracting files
 After you download all the files created by Facebook, extract them to one folder. If your file archiver software recognise the same names in folders, just select "Rename All".
 
