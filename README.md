@@ -26,18 +26,18 @@ In order to create Word Cloud in various shapes, mask need to be provided in in 
   <img src="./images/WordCloud.png" width="350" />
 </p>
 
-## Obtaining message files
+## Downloading messages files
 If you don't know how to download facebook archive, below you can find step by step manual.
 
 Click on you profile picture and select **Setting & Privacy** --> **Settings**
 <p float="left">
-  <img src="./images/facebook1.png" width="200">--></img>
+  <img src="./images/facebook1.png" width="200"> --> </img>
   <img src="./images/facebook2.png" width="200" />
 </p>
 
 On the left side of the screen click **Privacy** tab and then **Your Facebook information**
 <p float="left">
-  <img src="./images/facebook3.png" width="200" />
+  <img src="./images/facebook3.png" width="200"> --> </img>
   <img src="./images/facebook4.png" width="200" />
 </p>
 
