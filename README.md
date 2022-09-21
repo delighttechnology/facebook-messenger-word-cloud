@@ -3,7 +3,7 @@ Create Facebook Messenger Word Cloud based on the messeges exported from Faceboo
 
 ## Table of contents
 * [Example Usage](#Example-Usage)
-* [Custom shape](#Custom shape)
+* [Custom shape](#Custom-shape)
 * [Downloading messages files](#Downloading-messages-files)
 * [License](#License)
 
