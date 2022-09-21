@@ -99,6 +99,10 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
 
     sp.write("Clensing the div's     -  DONE [3/6]")
 
+    
+    #with open(path + r'\test.txt', 'w',encoding="utf8") as f:
+    #    f.write(texts2)
+
 
     def remove_punctation(st):
         for c in string.punctuation:
@@ -110,16 +114,19 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
         return st
 
     def clean_message_string(st):
-        st = unidecode(st)
-        remove_punctation(st)
-        lower_split(st)
-        return st
+        new = unidecode(st)
+        new = remove_punctation(new)
+        new = lower_split(new)
+        return new
 
     # Creating an array to fill with the normalized text
     dump = []
     messagesCleansed = clean_message_string(messages)
 
     sp.write("Unidecode/Chars/Lower  -  DONE [4/6]")
+
+    #with open(path + r'\test_2.txt', 'w',encoding="utf8") as f:
+    #    f.write(new_text)
 
 
     # Fill an array with the list of cleansed words
@@ -140,8 +147,15 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     if args.exclude is not None:
         df = df[df.Words.isin(parameters_list) == False]
 
+
+    # Printing values
+    #pd.set_option('display.min_rows', 200)
+    #pd.set_option('display.max_rows', 400)
+    #print(df)
+
+
     # Save file
-    df.to_csv(path + "\WordCount.csv",index=False)
+    df.to_csv(path + "\word_count.csv",index=False)
 
     if args.image is not None:
         if png_para.endswith('.png'):
@@ -166,3 +180,12 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
 
 with yaspin(Spinners.arc, text=" ", color="blue") as spp:
     spp.ok("File generated! [6/6]")
+
+
+# Display the generated image:
+#plt.imshow(wc, interpolation='bilinear')
+#plt.axis("off")
+#plt.figure()
+#plt.imshow(mask_img, cmap=plt.cm.gray, interpolation='bilinear')
+#plt.axis("off")
+#plt.show()
