@@ -3,7 +3,8 @@ Create Facebook Messenger Word Cloud based on the messeges exported from Faceboo
 
 ## Table of contents
 * [Example Usage](#Example-Usage)
-* [Mask constrains](#Mask-constrains)
+* [Custom shape](#Custom shape)
+* [Obtaining message files](#Obtaining-message-files)
 * [License](#License)
 
 ## Example Usage
@@ -15,14 +16,29 @@ Generate rectangular Word Cloud just providing the folder path containing the .h
 Generate rectangular Word Cloud without specified words:
 > main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why 
 
-Generate Word Cloud in different shapes (see [Mask constrains](#Mask-constrains) ):
+Generate Word Cloud in different shapes (see [Custom shape](#Custom shape) ):
 > main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why -i C:\Users\Andrzej\Desktop\like.jpg
 	
-## Mask constrains
+## Custom shape
 In order to create Word Cloud in various shapes, mask need to be provided in in a certain way. Script accepts only files with .jpg, .jpeg and .png extensions. Additionally, file need to have black `#000000` shape and white `#FFFFFF` background. For .png files background can be transparent.
 <p float="left">
   <img src="./images/like.jpg" width="350" />
   <img src="./images/WordCloud.png" width="350" />
+</p>
+
+## Obtaining message files
+If you don't know how to download facebook archive, below you can find step by step manual.
+
+Click on you profile picture and select **Setting & Privacy** --> **Settings**
+<p float="left">
+  <img src="./images/facebook1.png" width="200">--></img>
+  <img src="./images/facebook2.png" width="200" />
+</p>
+
+On the left side of the screen click **Privacy** tab and then **Your Facebook information**
+<p float="left">
+  <img src="./images/facebook3.png" width="200" />
+  <img src="./images/facebook4.png" width="200" />
 </p>
 
 
