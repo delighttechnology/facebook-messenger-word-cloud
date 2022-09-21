@@ -9,7 +9,7 @@ If you don't have any of the imported library, you can easily install them by co
 * [License](#License)
 
 ## Example Usage
-Generate rectangular Word Cloud just providing the folder path containing the .html files:
+Generate rectangular word cloud just providing the folder path containing the `.html` files:
 ```
 fb_word_cloud.py -p C:\fb\messages\inbox\username_xzdsmlmbaiw\
 ```
