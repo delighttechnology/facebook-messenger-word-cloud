@@ -22,7 +22,7 @@ Generate Word Cloud in different shapes (see [Custom shape](#Custom shape) ):
 ## Custom shape
 In order to create Word Cloud in various shapes, mask need to be provided in in a certain way. Script accepts only files with .jpg, .jpeg and .png extensions. Additionally, file need to have black `#000000` shape and white `#FFFFFF` background. For .png files background can be transparent.
 <p float="left">
-  <img src="./images/like.jpg" width="350" />
+  <img src="./images/like.jpg" width="350">   </img>
   <img src="./images/WordCloud.png" width="350" />
 </p>
 
@@ -42,7 +42,7 @@ On the left side of the screen click **Privacy** tab and then **Your Facebook in
 </p>
 
 You will have a list of options to choose from, please select **Download profile information**
-<img src="./images/facebook5.png" width="800">  ⮕  </img>
+<img src="./images/facebook5.png" width="800" />
 
 
 ## License
