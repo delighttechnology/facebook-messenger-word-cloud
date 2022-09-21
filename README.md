@@ -4,12 +4,12 @@ Create Facebook Messenger Word Cloud based on the messeges exported from Faceboo
 ## Table of contents
 * [Example Usage](#Example-Usage)
 * [Custom shape](#Custom shape)
-* [Obtaining message files](#Obtaining-message-files)
+* [Downloading messages files](#Downloading-messages-files)
 * [License](#License)
 
 ## Example Usage
 Generate rectangular Word Cloud just providing the folder path containing the .html files:
-> main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\
+> main.py -p C:\Users\Andrzej\facebook\messages\inbox\username_xzdsmlmbaiw\
 
 <img src="./images/WordCloud_rec.png" width="450" />
 
@@ -52,9 +52,9 @@ Here you can request a download of your facebook archive. It can contain all the
 ### Extracting files
 After you download all the files created by Facebook, extract them to one folder. If your file archiver software recognise the same names in folders, just select "Rename All".
 
-<img src="./images/zipped_fb.png" width="450" />
+<img src="./images/zipped_fb.png" width="438" />
 
-Ultimately, you should end up with following files when looking into selected person directory (eg.: ..\messages\inbox\personname_dzdsmlmbaiw\)
+Ultimately, you should end up with following files when looking into selected person directory (eg.: ..\messages\inbox\username_xzdsmlmbaiw\)
 
 <img src="./images/html_files.png" width="628" />
 
