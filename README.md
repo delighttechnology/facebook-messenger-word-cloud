@@ -1,5 +1,5 @@
 # Facebook Messenger Word Cloud
-Create Facebook Messenger Word Cloud based on the messeges exported from Facebook archive. Script extracts messages from one or multiple "message_x.html" files for a selected folder and transform into PNG (Word Cloud) and CSV (descending words list) containing most frequently used words.
+Create Facebook Messenger Word Cloud based on the messeges exported from Facebook archive. Script extracts messages from one or multiple "message_x.html" files for a selected folder and transform into .PNG (Word Cloud) and .CSV (descending words list) containing most frequently used words.
 
 ## Table of contents
 * [Example Usage](#Example-Usage)
@@ -16,7 +16,7 @@ Generate rectangular Word Cloud just providing the folder path containing the .h
 Generate rectangular Word Cloud without specified words:
 > main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why 
 
-Generate Word Cloud in different shapes (see [Custom shape](#Custom shape) ):
+Generate Word Cloud in different shapes (see [Custom shape](#Custom-shape) ):
 > main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why -i C:\Users\Andrzej\Desktop\like.jpg
 	
 ## Custom shape
