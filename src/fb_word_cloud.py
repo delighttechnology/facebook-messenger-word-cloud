@@ -7,13 +7,14 @@ from unidecode import unidecode         #pip install Unidecode
 from wordcloud import WordCloud         #pip install wordcloud
 from PIL import Image                   #pip install Pillow
 
-
+#Verify if provided string is folder directory
 def dir_path(string):
     if os.path.isdir(string):
         return string
     else:
         raise NotADirectoryError(string)
 
+#Verify if provided file has extension of .jpg, .jpeg or .png
 ext = ['.jpg','.jpeg','.png']
 def file_img(string):
     if string.endswith(tuple(ext)):
@@ -21,28 +22,33 @@ def file_img(string):
     else:
         raise FileNotFoundError(string)
 
+#Change list to string
 def list_to_string(string):
     str1 = " "
     return (str1.join(string))
 
-
+#Change string to list
 def string_to_list(string):
     li = list(string.split(","))
     return li
 
+#Change dataFrame to dictionary
 def dataFrame_to_dict(df):
     df = df.set_index('Words').to_dict()['Count']
     return df
 
+#Replace single characters from the string with space
 def remove_punctation(st):
     for c in string.punctuation:
         st = st.replace('?',' ').replace('!',' ').replace(',',' ').replace('.',' ').replace('"',' ').replace('/',' ')#.replace(':',' ').replace('(',' ').replace(')',' ')
         return st
 
+#Lowercase all words
 def lower_split(st):
     st = st.lower()
     return st
 
+#Create clean string without ąłćóżę etc.
 def clean_message_string(st):
     new = unidecode(st)
     new = remove_punctation(new)
