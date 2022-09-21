@@ -44,6 +44,14 @@ On the left side of the screen click **Privacy** tab and then **Your Facebook in
 You will have a list of options to choose from, please select **Download profile information**
 <img src="./images/facebook5.png" width="800" />
 
+Here you can request a download of your facebook archive. It can contain all the information that Facebook has collected so far. We only need a message, so I checked only this option with low resolution images. Remember to select HTML format as below. Confirm your choices and wait until Facebook will generate files to download. It could take even 24h so be patient.
+<img src="./images/facebook6.png" width="800" />
+
+### Extracting files
+After you download all the files created by Facebook, extract them to one folder. If your file archiver software recognise the same names in folders, just select "Rename All".
+<img src="./images/zipped_fb.png" width="250" />
+Ultimately, you should end up with following files when looking into selected person directory (eg.: ..\messages\inbox\personname_dzdsmlmbaiw\)
+<img src="./images/zipped_fb.png" width="250" />
 
 ## License
 
