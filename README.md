@@ -22,7 +22,7 @@ fb_word_cloud.py -p C:\fb\messages\inbox\username\ -e a,in,an,or,and,how,why
 
 Generate Word Cloud in different shapes (see [Custom shape](#Custom-shape) ):
 ```
-fb_word_cloud.py -p C:\fb\messages\inbox\username\ -e a,in,an,or,and,how,why -i C:\Users\A\Desktop\like.jpg
+fb_word_cloud.py -p C:\fb\messages\inbox\username\ -e a,in,an,or,and,how,why -i C:\Users\Desktop\like.jpg
 ```
 
 ## Custom shape
