@@ -52,7 +52,7 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
 
     path = args.path
     exclude_para = args.exclude
-    png_para = args.image
+    img_para = args.image
 
     if args.exclude is not None:
         parameters_list = string_to_list(exclude_para)
@@ -153,13 +153,13 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     df.to_csv(path + "\WordCount.csv",index=False)
 
     if args.image is not None:
-        if png_para.endswith('.png'):
-            foregroud = Image.open(png_para)
+        if img_para.endswith('.png'):
+            foregroud = Image.open(img_para).convert("RGBA")
             backgroud = Image.new("RGBA", foregroud.size, "WHITE")
             backgroud.paste(foregroud, (0, 0), foregroud)
             mask_img = np.array(backgroud)
         else:
-            mask_img = np.array(Image.open(png_para))
+            mask_img = np.array(Image.open(img_para).convert("RGBA"))
     else:
         mask_img = None
 
