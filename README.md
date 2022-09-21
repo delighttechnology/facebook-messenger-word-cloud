@@ -36,7 +36,7 @@ In order to create Word Cloud in various shapes, mask need to be provided in in 
 If you don't know how to download facebook archive, below you can find step by step manual.
 
 1. Click on you profile picture and select **Setting & Privacy** ⮕ **Settings**
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p float="left">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p float="left">
   <img src="./images/facebook1.png" width="250">  ⮕  </img>
   <img src="./images/facebook2.png" width="250" />
 </p>
@@ -48,21 +48,21 @@ If you don't know how to download facebook archive, below you can find step by s
 </p>
 
 3. You will have a list of options to choose from, please select **Download profile information**
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./images/facebook5.png" width="800" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./images/facebook5.png" width="800" />
 
 4. Here you can request a download of your facebook archive. It can contain all the information that Facebook has collected so far. We only need a message, so I checked only this option with low resolution images. Remember to select HTML format as below. Confirm your choices and wait until Facebook will generate files to download. It could take even 24h so be patient.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p align="center">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p align="center">
   <img src="./images/facebook6.png" width="800" />
 </p>
 
 ### Extracting files
 After you download all the files created by Facebook, extract them to one folder. If your file archiver software recognise the same names in folders, just select "Rename All".
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./images/zipped_fb.png" width="438" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./images/zipped_fb.png" width="438" />
 
 Ultimately, you should end up with following files when looking into selected person directory (eg.: `..\messages\inbox\username_xzdsmlmbaiw\`)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./images/html_files.png" width="628" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./images/html_files.png" width="628" />
 
 ## License
 
