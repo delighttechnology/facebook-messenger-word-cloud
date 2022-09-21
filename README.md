@@ -17,16 +17,16 @@ fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username_xzdsmlmbai
 
 Generate rectangular Word Cloud without specified words:
 ```
-fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why 
+fb_word_cloud.py -p C:\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why 
 ```
 
 Generate Word Cloud in different shapes (see [Custom shape](#Custom-shape) ):
 ```
-fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why -i C:\Users\Andrzej\Desktop\like.jpg
+fb_word_cloud.py -p C:\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why -i C:\Users\A\Desktop\like.jpg
 ```
 
 ## Custom shape
-In order to create Word Cloud in various shapes, mask need to be provided in in a certain way. Script accepts only files with .jpg, .jpeg and .png extensions. Additionally, file need to have black `#000000` shape and white `#FFFFFF` background. For .png files background can be transparent.
+In order to create Word Cloud in various shapes, mask need to be provided in in a certain way. Script accepts only files with `.jpg`, `.jpeg` and `.png` extensions. Additionally, file need to have black `#000000` shape and white `#FFFFFF` background. For .png files background can be transparent.
 <p float="left">
   <img src="./images/like.jpg" width="400">   </img>
   <img src="./images/WordCloud.png" width="400" />
@@ -35,23 +35,23 @@ In order to create Word Cloud in various shapes, mask need to be provided in in 
 ## Downloading messages files
 If you don't know how to download facebook archive, below you can find step by step manual.
 
-Click on you profile picture and select **Setting & Privacy** ⮕ **Settings**
+1. Click on you profile picture and select **Setting & Privacy** ⮕ **Settings**
 <p float="left">
   <img src="./images/facebook1.png" width="250">  ⮕  </img>
   <img src="./images/facebook2.png" width="250" />
 </p>
 
-On the left side of the screen click **Privacy** tab and then **Your Facebook information**
+2. On the left side of the screen click **Privacy** tab and then **Your Facebook information**
 <p float="left">
   <img src="./images/facebook3.png" width="250">  ⮕  </img>
   <img src="./images/facebook4.png" width="250" />
 </p>
 
-You will have a list of options to choose from, please select **Download profile information**
+3. You will have a list of options to choose from, please select **Download profile information**
 
 <img src="./images/facebook5.png" width="800" />
 
-Here you can request a download of your facebook archive. It can contain all the information that Facebook has collected so far. We only need a message, so I checked only this option with low resolution images. Remember to select HTML format as below. Confirm your choices and wait until Facebook will generate files to download. It could take even 24h so be patient.
+4. Here you can request a download of your facebook archive. It can contain all the information that Facebook has collected so far. We only need a message, so I checked only this option with low resolution images. Remember to select HTML format as below. Confirm your choices and wait until Facebook will generate files to download. It could take even 24h so be patient.
 
 <img src="./images/facebook6.png" width="800" />
 
