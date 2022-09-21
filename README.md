@@ -10,6 +10,8 @@ Create Facebook Messenger Word Cloud based on the messeges exported from Faceboo
 Generate rectangular Word Cloud just providing the folder path containing the .html files:
 > main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\
 
+<img src="./images/WordCloud_rec.png" width="450" />
+
 Generate rectangular Word Cloud without specified words:
 > main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why 
 
