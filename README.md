@@ -43,7 +43,7 @@ If you don't know how to download facebook archive, below you can find step by s
 
 2. On the left side of the screen click **Privacy** tab and then **Your Facebook information**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p float="left">
-  <img src="./images/facebook3.png" width="250">  ⮕  </img>
+  <img src="./images/facebook3.png" width="250">&nbsp;&nbsp;⮕&nbsp;&nbsp;</img>
   <img src="./images/facebook4.png" width="250" />
 </p>
 
