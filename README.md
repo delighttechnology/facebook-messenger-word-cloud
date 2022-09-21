@@ -41,6 +41,9 @@ On the left side of the screen click **Privacy** tab and then **Your Facebook in
   <img src="./images/facebook4.png" width="250" />
 </p>
 
+You will have a list of options to choose from, please select **Download profile information**
+<img src="./images/facebook5.png" width="800">  ⮕  </img>
+
 
 ## License
 
