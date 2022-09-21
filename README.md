@@ -36,10 +36,10 @@ In order to create Word Cloud in various shapes, mask need to be provided in in 
 If you don't know how to download facebook archive, below you can find step by step manual.
 
 1. Click on you profile picture and select **Setting & Privacy** ⮕ **Settings**
-  <p float="left">
-    <img src="./images/facebook1.png" width="250">  ⮕  </img>
-    <img src="./images/facebook2.png" width="250" />
-  </p>
+   - <p float="left">
+      <img src="./images/facebook1.png" width="250">  ⮕  </img>
+      <img src="./images/facebook2.png" width="250" />
+    </p>
 
 2. On the left side of the screen click **Privacy** tab and then **Your Facebook information**
   <p float="left">
