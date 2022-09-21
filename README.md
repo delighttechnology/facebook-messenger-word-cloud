@@ -52,11 +52,11 @@ Here you can request a download of your facebook archive. It can contain all the
 ### Extracting files
 After you download all the files created by Facebook, extract them to one folder. If your file archiver software recognise the same names in folders, just select "Rename All".
 
-<img src="./images/zipped_fb.png" width="400" />
+<img src="./images/zipped_fb.png" width="450" />
 
 Ultimately, you should end up with following files when looking into selected person directory (eg.: ..\messages\inbox\personname_dzdsmlmbaiw\)
 
-<img src="./images/html_files.png" width="400" />
+<img src="./images/html_files.png" width="628" />
 
 ## License
 
