@@ -22,8 +22,8 @@ Generate Word Cloud in different shapes (see [Custom shape](#Custom shape) ):
 ## Custom shape
 In order to create Word Cloud in various shapes, mask need to be provided in in a certain way. Script accepts only files with .jpg, .jpeg and .png extensions. Additionally, file need to have black `#000000` shape and white `#FFFFFF` background. For .png files background can be transparent.
 <p float="left">
-  <img src="./images/like.jpg" width="350">   </img>
-  <img src="./images/WordCloud.png" width="350" />
+  <img src="./images/like.jpg" width="400">   </img>
+  <img src="./images/WordCloud.png" width="400" />
 </p>
 
 ## Downloading messages files
@@ -52,11 +52,11 @@ Here you can request a download of your facebook archive. It can contain all the
 ### Extracting files
 After you download all the files created by Facebook, extract them to one folder. If your file archiver software recognise the same names in folders, just select "Rename All".
 
-<img src="./images/zipped_fb.png" width="350" />
+<img src="./images/zipped_fb.png" width="400" />
 
 Ultimately, you should end up with following files when looking into selected person directory (eg.: ..\messages\inbox\personname_dzdsmlmbaiw\)
 
-<img src="./images/zipped_fb.png" width="350" />
+<img src="./images/html_files.png" width="400" />
 
 ## License
 
