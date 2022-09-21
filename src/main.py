@@ -12,24 +12,24 @@ from yaspin.spinners import Spinners
 
 with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
 
-    def dirPath(string):
+    def dir_path(string):
         if os.path.isdir(string):
             return string
         else:
             raise NotADirectoryError(string)
 
-    def listToString(string):
+    def list_to_string(string):
         str1 = " "
         return (str1.join(string))
 
 
-    def stringToList(string):
+    def string_to_list(string):
         li = list(string.split(","))
         return li
 
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--path', '-p', help="Type a folder directory containing html files with messages", type=dirPath)
+    parser.add_argument('--path', '-p', help="Type a folder directory containing html files with messages", type=dir_path)
     parser.add_argument('--exclude', '-e', help="Type which words or letters to exclude separated with a comma", type= str)
 
 
@@ -38,20 +38,19 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     path = args.path
     exclude_parameters = args.exclude
     if args.exclude is not None:
-        parameters_list = stringToList(exclude_parameters)
+        parameters_list = string_to_list(exclude_parameters)
 
 
-    filesToCombine = list(pathlib.Path(path).glob('*.html'))
+    files_to_combine = list(pathlib.Path(path).glob('*.html'))
 
-    if(os.path.exists(path + "\combined.html")==False):                 #do usuniecia jak wgrane na github
+    if(os.path.exists(path + "\combined.html")==False):
         with open(path + "\combined.html", "wb") as outfile:
-            for f in filesToCombine:
+            for f in files_to_combine:
                 with open(f, "rb") as infile:
                     outfile.write(infile.read())
 
 
     sp.write("Combining html files   -  DONE [1/6]")
-
 
 
     with open(path + "\combined.html",encoding="utf8") as fp:
@@ -69,13 +68,14 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     for div in soup.find_all(text=re.compile(' IP: ')):
         div.parent.decompose()
 
+
     sp.write("Decomposing div's      -  DONE [2/6]")
 
-    messageWithDiv = soup.find_all("div", {"class":"_2ph_ _a6-p"})
-    messageExtracted = [r.text.strip() for r in messageWithDiv]
+    message_with_div = soup.find_all("div", {"class":"_2ph_ _a6-p"})
+    message_extracted = [r.text.strip() for r in message_with_div]
 
 
-    messages = listToString(messageExtracted)
+    messages = list_to_string(message_extracted)
     messages = re.sub(r"\S*https?:\S*", "", messages)   #Remove links from string
 
     sp.write("Clensing the div's     -  DONE [3/6]")
@@ -85,31 +85,34 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     #    f.write(texts2)
 
 
-    def removePunctation(st):
+    def remove_punctation(st):
         for c in string.punctuation:
             st = st.replace('?',' ').replace('!',' ').replace(',',' ').replace('.',' ').replace('"',' ').replace('/',' ')#.replace(':',' ').replace('(',' ').replace(')',' ')
             return st
 
-    def lowerSplit(st):
+    def lower_split(st):
         st = st.lower()
         return st
 
+    def clean_message_string(st):
+        st = unidecode(st)
+        remove_punctation(st)
+        lower_split(st)
+        return st
 
     # Creating an array to fill with the normalized text
     dump = []
-    messagesCleansed = unidecode(messages)             #Normalize text from łąćśżó to łacszo
-    messagesCleansed = removePunctation(messagesCleansed)           
-    messagesCleansed = lowerSplit(messagesCleansed)
+    messagesCleansed = clean_message_string(messages)
 
     sp.write("Unidecode/Chars/Lower  -  DONE [4/6]")
 
     #with open(path + r'\test_2.txt', 'w',encoding="utf8") as f:
     #    f.write(new_text)
 
+
     # Fill an array with the list of cleansed words
     messagesCleansed= messagesCleansed.split()
     dump.extend(messagesCleansed)
-
 
 
     #Creating DataFrame with count of the words and splitted by columns "Words" and "Count"
