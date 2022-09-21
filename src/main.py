@@ -10,6 +10,7 @@ from yaspin import yaspin               #pip install --upgrade yaspin
 from yaspin.spinners import Spinners
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
+from PIL import Image
 
 
 with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
@@ -19,6 +20,13 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
             return string
         else:
             raise NotADirectoryError(string)
+
+    ext = ['.jpg','.jpeg','.png']
+    def file_img(string):
+        if string.endswith(tuple(ext)):
+            return string
+        else:
+            raise FileNotFoundError(string)
 
     def list_to_string(string):
         str1 = " "
@@ -37,14 +45,19 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     parser = argparse.ArgumentParser()
     parser.add_argument('--path', '-p', help="Type a folder directory containing html files with messages", type=dir_path)
     parser.add_argument('--exclude', '-e', help="Type which words or letters to exclude separated with a comma", type= str)
+    parser.add_argument('--image', '-i', help="Type png/jpg file path to create a mask", type=file_img)
+
 
 
     #Assign parameters to variables and check if --exclude exists
     args = parser.parse_args()
+
     path = args.path
-    exclude_parameters = args.exclude
+    exclude_para = args.exclude
+    png_para = args.image
+
     if args.exclude is not None:
-        parameters_list = string_to_list(exclude_parameters)
+        parameters_list = string_to_list(exclude_para)
 
 
     files_to_combine = list(pathlib.Path(path).glob('*.html'))
@@ -144,11 +157,21 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     # Save file
     df.to_csv(path + "\word_count.csv",index=False)
 
+    if args.image is not None:
+        if png_para.endswith('.png'):
+            foregroud = Image.open(png_para)
+            backgroud = Image.new("RGBA", foregroud.size, "WHITE")
+            backgroud.paste(foregroud, (0, 0), foregroud)
+            mask_img = np.array(backgroud)
+        else:
+            mask_img = np.array(Image.open(png_para))
+
+    #Generate Word Cloud
+    wc = WordCloud(background_color="white", width=1400, height=1000, max_words=300,mask=mask_img,repeat=True,min_font_size=4).generate_from_frequencies(dataFrame_to_dict(df))
 
 
-    wc = WordCloud(width=1200, height=800, max_words=200).generate_from_frequencies(dataFrame_to_dict(df))
-
-
+    # store to file
+    wc.to_file(path + "\WordCloud.png")
 
     # Remove generated, combined html file
     os.remove(path+"\combined.html")
@@ -160,6 +183,9 @@ with yaspin(Spinners.arc, text=" ", color="blue") as spp:
 
 
 # Display the generated image:
-plt.imshow(wc, interpolation='bilinear')
-plt.axis("off")
-plt.show()
+#plt.imshow(wc, interpolation='bilinear')
+#plt.axis("off")
+#plt.figure()
+#plt.imshow(mask_img, cmap=plt.cm.gray, interpolation='bilinear')
+#plt.axis("off")
+#plt.show()
