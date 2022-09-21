@@ -11,18 +11,18 @@ If you don't have any of the imported library, you can easily install them by co
 ## Example Usage
 Generate rectangular Word Cloud just providing the folder path containing the .html files:
 ```
-fb_word_cloud.py -p C:\facebook\messages\inbox\username_xzdsmlmbaiw\
+fb_word_cloud.py -p C:\fb\messages\inbox\username_xzdsmlmbaiw\
 ```
 <img src="./images/WordCloud_rec.png" width="450" />
 
 Generate rectangular Word Cloud without specified words:
 ```
-fb_word_cloud.py -p C:\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why 
+fb_word_cloud.py -p C:\fb\messages\inbox\username\ -e a,in,an,or,and,how,why 
 ```
 
 Generate Word Cloud in different shapes (see [Custom shape](#Custom-shape) ):
 ```
-fb_word_cloud.py -p C:\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why -i C:\Users\A\Desktop\like.jpg
+fb_word_cloud.py -p C:\fb\messages\inbox\username\ -e a,in,an,or,and,how,why -i C:\Users\A\Desktop\like.jpg
 ```
 
 ## Custom shape
