@@ -11,7 +11,7 @@ Create Facebook Messenger Word Cloud based on the messeges exported from Faceboo
 * [License](#License)
 
 ## Example Usage
-
+Generate 
 > Text that is a quote
 	
 ## Parameters
