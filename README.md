@@ -10,7 +10,10 @@ If you don't have any of the imported library, you can easily install them by co
 
 ## Example Usage
 Generate rectangular Word Cloud just providing the folder path containing the .html files:
-> fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username_xzdsmlmbaiw\
+```py
+fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username_xzdsmlmbaiw\
+```
+
 
 <img src="./images/WordCloud_rec.png" width="450" />
 
