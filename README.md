@@ -6,17 +6,23 @@ Create Facebook Messenger Word Cloud based on the messeges exported from Faceboo
 ---
 
 ## Table of contents
-* [Example Usage](#Example Usage)
-* [Parameters](#Parameters)
+* [Example Usage](#Example-Usage)
+* [Mask constrains](#Mask-constrains)
 * [License](#License)
 
 ## Example Usage
-Generate 
-> Text that is a quote
+Generate rectangular Word Cloud just providing the folder path containing the .html files:
+> main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\
+Generate rectangular Word Cloud without specified words:
+> main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why 
+Generate Word Cloud in different shapes (see [Mask constrains](#Mask-constrains) ):
+> main.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why -i C:\Users\Andrzej\Desktop\like.jpg
 	
-## Parameters
+## Mask constrains
+In order to create Word Cloud in various shapes, mask need to be provided in in a certain way. Script accepts only files with .jpg, .jpeg and .png extensions. Additionally, file need to have black #000000 shape and white #FFFFFF background. For .png files background can be transparent.
 <p float="left">
-  <img src="./images/pcb1.png" width="350" />
+  <img src="./images/like.jpg" width="350" />
+  <img src="./images/WordCloud.png" width="350" />
 </p>
 
 
