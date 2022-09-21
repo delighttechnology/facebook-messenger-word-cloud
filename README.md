@@ -1,5 +1,5 @@
 # Facebook Messenger Word Cloud
-Create Facebook Messenger Word Cloud based on the messeges exported from Facebook archive. Script extracts messages from one or multiple "message_x.HTML" files for a selected folder and transform into **.PNG** (Word Cloud) and **.CSV** (descending words list) containing most frequently used words.
+Create Facebook Messenger Word Cloud based on the messeges exported from Facebook archive. Script extracts messages from one or multiple `message_x.HTML` files for a selected folder and transform into `.PNG` (Word Cloud) and `.CSV` (descending words list) containing most frequently used words.
 If you don't have any of the imported library, you can easily install them by coping the comment from the begining of the script (pip install XXX). Generating a word cloud from a JSON file would probably be much simpler however, not everyone downloads this file as an archive at the first place and it wouldn't be such a challenge.
 
 ## Table of contents
@@ -10,19 +10,21 @@ If you don't have any of the imported library, you can easily install them by co
 
 ## Example Usage
 Generate rectangular Word Cloud just providing the folder path containing the .html files:
-```py
+```
 fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username_xzdsmlmbaiw\
 ```
-
-
 <img src="./images/WordCloud_rec.png" width="450" />
 
 Generate rectangular Word Cloud without specified words:
-> fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why 
+```
+fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why 
+```
 
 Generate Word Cloud in different shapes (see [Custom shape](#Custom-shape) ):
-> fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why -i C:\Users\Andrzej\Desktop\like.jpg
-	
+```
+fb_word_cloud.py -p C:\Users\Andrzej\facebook\messages\inbox\username\ -e a,in,an,or,and,no,how,why -i C:\Users\Andrzej\Desktop\like.jpg
+```
+
 ## Custom shape
 In order to create Word Cloud in various shapes, mask need to be provided in in a certain way. Script accepts only files with .jpg, .jpeg and .png extensions. Additionally, file need to have black `#000000` shape and white `#FFFFFF` background. For .png files background can be transparent.
 <p float="left">
@@ -58,7 +60,7 @@ After you download all the files created by Facebook, extract them to one folder
 
 <img src="./images/zipped_fb.png" width="438" />
 
-Ultimately, you should end up with following files when looking into selected person directory (eg.: ..\messages\inbox\username_xzdsmlmbaiw\)
+Ultimately, you should end up with following files when looking into selected person directory (eg.: `..\messages\inbox\username_xzdsmlmbaiw\`)
 
 <img src="./images/html_files.png" width="628" />
 
