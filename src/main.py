@@ -41,12 +41,11 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
         df = df.set_index('Words').to_dict()['Count']
         return df
 
-
+    #List of argument to provide
     parser = argparse.ArgumentParser()
     parser.add_argument('--path', '-p', help="Type a folder directory containing html files with messages", type=dir_path)
     parser.add_argument('--exclude', '-e', help="Type which words or letters to exclude separated with a comma", type= str)
     parser.add_argument('--image', '-i', help="Type png/jpg file path to create a mask", type=file_img)
-
 
 
     #Assign parameters to variables and check if --exclude exists
@@ -60,6 +59,7 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
         parameters_list = string_to_list(exclude_para)
 
 
+    #Combine all .html files into one
     files_to_combine = list(pathlib.Path(path).glob('*.html'))
 
     if(os.path.exists(path + "\combined.html")==False):
@@ -90,18 +90,17 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
 
     sp.write("Decomposing div's      -  DONE [2/6]")
 
+
+    #Extract text from the html
     message_with_div = soup.find_all("div", {"class":"_2ph_ _a6-p"})
     message_extracted = [r.text.strip() for r in message_with_div]
 
-
+    #Remove https links form the string
     messages = list_to_string(message_extracted)
     messages = re.sub(r"\S*https?:\S*", "", messages)   #Remove links from string
 
-    sp.write("Clensing the div's     -  DONE [3/6]")
 
-    
-    #with open(path + r'\test.txt', 'w',encoding="utf8") as f:
-    #    f.write(texts2)
+    sp.write("Clensing the div's     -  DONE [3/6]")
 
 
     def remove_punctation(st):
@@ -123,22 +122,20 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     dump = []
     messagesCleansed = clean_message_string(messages)
 
-    sp.write("Unidecode/Chars/Lower  -  DONE [4/6]")
 
-    #with open(path + r'\test_2.txt', 'w',encoding="utf8") as f:
-    #    f.write(new_text)
+    sp.write("Unidecode/Chars/Lower  -  DONE [4/6]")
 
 
     # Fill an array with the list of cleansed words
     messagesCleansed= messagesCleansed.split()
     dump.extend(messagesCleansed)
 
-
     #Creating DataFrame with count of the words and splitted by columns "Words" and "Count"
     df = pd.value_counts(np.array(dump)).rename_axis('Words').reset_index(name='Count')
 
 
     sp.write("Data Frame created     -  DONE [5/6]")
+
 
     #Remove strage values
     df = df[df.Words.str.contains("target=|/>|alt=|<img|<br|<a|[0-9]+|[;][&]gt[;]|[:][&]gt[;]|-|[:][&]lt[;]|\r\n|\r|\n",regex=True)==False]
@@ -148,14 +145,13 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
         df = df[df.Words.isin(parameters_list) == False]
 
 
-    # Printing values
+    # Printing DataFrame values
     #pd.set_option('display.min_rows', 200)
     #pd.set_option('display.max_rows', 400)
     #print(df)
 
-
     # Save file
-    df.to_csv(path + "\word_count.csv",index=False)
+    df.to_csv(path + "\WordCount.csv",index=False)
 
     if args.image is not None:
         if png_para.endswith('.png'):
@@ -177,15 +173,5 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     os.remove(path+"\combined.html")
 
 
-
 with yaspin(Spinners.arc, text=" ", color="blue") as spp:
     spp.ok("File generated! [6/6]")
-
-
-# Display the generated image:
-#plt.imshow(wc, interpolation='bilinear')
-#plt.axis("off")
-#plt.figure()
-#plt.imshow(mask_img, cmap=plt.cm.gray, interpolation='bilinear')
-#plt.axis("off")
-#plt.show()
