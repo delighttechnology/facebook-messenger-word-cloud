@@ -8,6 +8,8 @@ import pandas as pd                     #pip install pandas
 import time
 from yaspin import yaspin               #pip install --upgrade yaspin
 from yaspin.spinners import Spinners
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
 
 
 with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
@@ -26,6 +28,10 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     def string_to_list(string):
         li = list(string.split(","))
         return li
+
+    def dataFrame_to_dict(df):
+        df = df.set_index('Words').to_dict()['Count']
+        return df
 
 
     parser = argparse.ArgumentParser()
@@ -138,9 +144,22 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     # Save file
     df.to_csv(path + "\word_count.csv",index=False)
 
+
+
+    wc = WordCloud(width=1200, height=800, max_words=200).generate_from_frequencies(dataFrame_to_dict(df))
+
+
+
     # Remove generated, combined html file
     os.remove(path+"\combined.html")
 
 
+
 with yaspin(Spinners.arc, text=" ", color="blue") as spp:
     spp.ok("File generated! [6/6]")
+
+
+# Display the generated image:
+plt.imshow(wc, interpolation='bilinear')
+plt.axis("off")
+plt.show()
