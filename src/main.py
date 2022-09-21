@@ -1,15 +1,14 @@
-from bs4 import BeautifulSoup           #pip install beautifulsoup4
-from unidecode import unidecode         #pip install Unidecode
 import sys, os, pathlib, argparse       #pip install argparse
-import string
-import re                               #pip install regex
+import string, re
 import numpy as np                      #pip install numpy
 import pandas as pd                     #pip install pandas
 import time
+import matplotlib.pyplot as plt
+from bs4 import BeautifulSoup           #pip install beautifulsoup4
+from unidecode import unidecode         #pip install Unidecode
 from yaspin import yaspin               #pip install --upgrade yaspin
 from yaspin.spinners import Spinners
-from wordcloud import WordCloud, STOPWORDS
-import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 from PIL import Image
 
 
