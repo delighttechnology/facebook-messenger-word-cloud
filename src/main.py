@@ -41,7 +41,7 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
         df = df.set_index('Words').to_dict()['Count']
         return df
 
-    #List of argument to provide
+    #List of arguments to provide
     parser = argparse.ArgumentParser()
     parser.add_argument('--path', '-p', help="Type a folder directory containing html files with messages", type=dir_path)
     parser.add_argument('--exclude', '-e', help="Type which words or letters to exclude separated with a comma", type= str)
@@ -100,7 +100,7 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     messages = re.sub(r"\S*https?:\S*", "", messages)   #Remove links from string
 
 
-    sp.write("Clensing the div's     -  DONE [3/6]")
+    sp.write("Clensing div's         -  DONE [3/6]")
 
 
     def remove_punctation(st):
@@ -123,7 +123,7 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     messagesCleansed = clean_message_string(messages)
 
 
-    sp.write("Unidecode/Chars/Lower  -  DONE [4/6]")
+    sp.write("Remove special chars   -  DONE [4/6]")
 
 
     # Fill an array with the list of cleansed words
@@ -133,12 +133,12 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
     #Creating DataFrame with count of the words and splitted by columns "Words" and "Count"
     df = pd.value_counts(np.array(dump)).rename_axis('Words').reset_index(name='Count')
 
+    #Remove strage values
+    df = df[df.Words.str.contains("target=|/>|alt=|<img|<br|<a|[0-9]+|[;][&]gt[;]|[:][&]gt[;]|-|[:][&]lt[;]|\r\n|\r|\n",regex=True)==False]
+
 
     sp.write("Data Frame created     -  DONE [5/6]")
 
-
-    #Remove strage values
-    df = df[df.Words.str.contains("target=|/>|alt=|<img|<br|<a|[0-9]+|[;][&]gt[;]|[:][&]gt[;]|-|[:][&]lt[;]|\r\n|\r|\n",regex=True)==False]
 
     #Remove values from parameter
     if args.exclude is not None:
@@ -161,6 +161,8 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
             mask_img = np.array(backgroud)
         else:
             mask_img = np.array(Image.open(png_para))
+    else:
+        mask_img = None
 
     #Generate Word Cloud
     wc = WordCloud(background_color="white", width=1400, height=1000, max_words=300,mask=mask_img,repeat=True,min_font_size=4).generate_from_frequencies(dataFrame_to_dict(df))
@@ -174,4 +176,4 @@ with yaspin(Spinners.arc, text="Generating...", color="blue") as sp:
 
 
 with yaspin(Spinners.arc, text=" ", color="blue") as spp:
-    spp.ok("File generated! [6/6]")
+    spp.ok("Files generated! [6/6]")
