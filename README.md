@@ -52,6 +52,7 @@ If you don't know how to download facebook archive, below you can find step by s
 3. You will have a list of options to choose from, please select **Download profile information**
 <img src="./images/facebook5.png" width="800" />
 <br/>
+
 4. Here you can request a download of your facebook archive. It can contain all the information that Facebook has collected so far. We only need a message, so I checked only this option with low resolution images. Remember to select HTML format as below. Confirm your choices and wait until Facebook will generate files to download. It could take even 24h so be patient.
 <p align="center">
   <img src="./images/facebook6.png" width="800" />
