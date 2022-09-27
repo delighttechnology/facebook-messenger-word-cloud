@@ -55,6 +55,14 @@ def clean_message_string(st):
     new = lower_split(new)
     return new
 
+#Clean html file using div classes
+def div_decompose(*args, parent_decompose=False, **kwargs):
+        for div in soup.find_all(*args, **kwargs):
+            if parent_decompose:
+                div.parent.decompose()
+            else:
+                div.decompose()
+
 
 #List of arguments to provide
 parser = argparse.ArgumentParser()
@@ -63,13 +71,13 @@ parser.add_argument('--exclude', '-e', help="Type which words or letters to excl
 parser.add_argument('--image', '-i', help="Type png/jpg file path to create a mask", type=file_img)
 
 #Assign parameters to variables and check if --exclude exists
-args = parser.parse_args()
+argum = parser.parse_args()
 
-path = args.path
-exclude_para = args.exclude
-img_para = args.image
+path = argum.path
+exclude_para = argum.exclude
+img_para = argum.image
 
-if args.exclude is not None:
+if argum.exclude is not None:
     parameters_list = string_to_list(exclude_para)
 
 
@@ -89,17 +97,16 @@ print("Combining html files   -    DONE [1/6]")
 with open(path + "\combined.html",encoding="utf8") as fp:
     soup = BeautifulSoup(fp, 'html.parser')
 
-for div in soup.find_all("ul", {'class':'_a6-q'}):
-    div.decompose()
 
-for div in soup.find_all("video", {'class':'_a6_o _3-96'}):     
-    div.decompose()    
 
-for div in soup.findAll("audio", attrs={'class': None}):
-    div.decompose()
-
-for div in soup.find_all(text=re.compile(' IP: ')):
-    div.parent.decompose()
+#Decompose html file using BeautifulSoup
+for args, kwargs in [
+        (("ul", {'class': '_a6-q'}), {}),
+        (("video", {'class': '_a6_o _3-96'}), {}),
+        (("audio",), {"attrs": {'class': None}}),
+        ((), {"text": re.compile(' IP: '),"parent_decompose": True})
+    ]:
+            div_decompose(*args, **kwargs)
 
 
 print("Decomposing div's      -    DONE [2/6]")
@@ -118,7 +125,7 @@ print("Clensing div's         -    DONE [3/6]")
 
 
 # Creating an array to fill with the normalized text
-messagesCleansed = clean_message_string(messages)
+messages_cleansed = clean_message_string(messages)
 
 
 print("Remove special chars   -    DONE [4/6]")
@@ -126,8 +133,8 @@ print("Remove special chars   -    DONE [4/6]")
 
 # Fill an array with the list of cleansed words
 dump = []
-messagesCleansed= messagesCleansed.split()
-dump.extend(messagesCleansed)
+messages_cleansed= messages_cleansed.split()
+dump.extend(messages_cleansed)
 
 #Creating DataFrame with count of the words and splitted by columns "Words" and "Count"
 df = pd.value_counts(np.array(dump)).rename_axis('Words').reset_index(name='Count')
@@ -140,14 +147,14 @@ print("Data Frame created     -    DONE [5/6]")
 
 
 #Remove values from parameter
-if args.exclude is not None:
+if argum.exclude is not None:
     df = df[df.Words.isin(parameters_list) == False]
 
 #Save to CSV file
 df.to_csv(path + "\WordCount.csv",index=False)
 
 #Check if .png file contain transparent backgroud and change it to white
-if args.image is not None:
+if argum.image is not None:
     if img_para.endswith('.png'):
         foregroud = Image.open(img_para).convert("RGBA")
         backgroud = Image.new("RGBA", foregroud.size, "WHITE")
