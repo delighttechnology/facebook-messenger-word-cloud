@@ -20,7 +20,7 @@ Generate rectangular Word Cloud without specified words:
 fb_word_cloud.py -p C:\fb\messages\inbox\username\ -e a,in,an,or,and,how,why 
 ```
 
-Generate Word Cloud in different shapes (see [Custom shape](#Custom-shape) ):
+Generate Word Cloud in different shapes (see [Custom shape](#Custom-shape) ) without specified words :
 ```
 fb_word_cloud.py -p C:\fb\messages\inbox\username\ -e a,in,an,or,and,how,why -i C:\Users\Desktop\like.jpg
 ```
