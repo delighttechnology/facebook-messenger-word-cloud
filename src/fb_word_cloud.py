@@ -63,7 +63,6 @@ def div_decompose(*args, parent_decompose=False, **kwargs):
             else:
                 div.decompose()
 
-
 #List of arguments to provide
 parser = argparse.ArgumentParser()
 parser.add_argument('--path', '-p', help="Type a folder directory containing html files with messages", type=dir_path)
@@ -108,9 +107,7 @@ for args, kwargs in [
     ]:
             div_decompose(*args, **kwargs)
 
-
 print("Decomposing div's      -    DONE [2/6]")
-
 
 #Extract text from the html
 message_with_div = soup.find_all("div", {"class":"_2ph_ _a6-p"})
@@ -127,9 +124,7 @@ print("Clensing div's         -    DONE [3/6]")
 # Creating an array to fill with the normalized text
 messages_cleansed = clean_message_string(messages)
 
-
 print("Remove special chars   -    DONE [4/6]")
-
 
 # Fill an array with the list of cleansed words
 dump = []
@@ -142,9 +137,7 @@ df = pd.value_counts(np.array(dump)).rename_axis('Words').reset_index(name='Coun
 #Remove strage values
 df = df[df.Words.str.contains("target=|/>|alt=|<img|<br|<a|[0-9]+|[;][&]gt[;]|[:][&]gt[;]|-|[:][&]lt[;]|\r\n|\r|\n",regex=True)==False]
 
-
 print("Data Frame created     -    DONE [5/6]")
-
 
 #Remove values from parameter
 if argum.exclude is not None:
@@ -173,6 +166,5 @@ wc.to_file(path + "\WordCloud.png")
 
 # Remove generated, combined html file
 os.remove(path+"\combined.html")
-
 
 print("Files generated!      COMPLEATED [6/6]")
