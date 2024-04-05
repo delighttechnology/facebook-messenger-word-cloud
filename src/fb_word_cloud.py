@@ -1,7 +1,7 @@
-import sys, os, pathlib, argparse       #pip install argparse
+import sys, os, pathlib, argparse       
 import string, re                       #pip install regex
-import numpy as np                      #pip install numpy
-import pandas as pd                     #pip install pandas
+import numpy as np                      
+import pandas as pd                     
 from bs4 import BeautifulSoup           #pip install beautifulsoup4
 from unidecode import unidecode         #pip install Unidecode
 from wordcloud import WordCloud         #pip install wordcloud
